@@ -1,0 +1,47 @@
+name: publish to npm and cdn
+
+on:
+  push:
+    tags:
+      - 'v*'
+
+jobs:
+
+  publishAndRelease:
+
+    runs-on: ubuntu-latest
+
+    steps:
+      - uses: actions/checkout@v4
+
+      - name: Use Node.js
+        uses: actions/setup-node@v4
+        with:
+          node-version: '20.x'
+
+      - run: corepack enable
+      - run: pnpm i
+      - run: pnpm build
+
+      - name: publish
+        run: |
+          pnpm config set '//registry.npmjs.org/:_authToken' "${NODE_AUTH_TOKEN}"
+          pnpm publish -r --access public --no-git-checks
+        env:
+          NODE_AUTH_TOKEN: ${{secrets.NPM_TOKEN}}
+
+      - name: Zip
+        run: zip -r output.zip dist
+
+      - name: Create Release
+        uses: softprops/action-gh-release@v2
+        with:
+          tag_name: ${{ env.VERSION }}
+          release_name: Release ${{ env.VERSION }}
+          body: |
+            Release ${{ env.VERSION }}
+          files: |
+            ./output.zip
+
+        env:
+          GITHUB_TOKEN: ${{ secrets.GITHUB_TOKEN }}

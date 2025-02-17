@@ -1,0 +1,46 @@
+.search {
+  margin: 0 auto;
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  align-items: center;
+  max-width: 500px;
+
+  &-input {
+    margin-top: 250px;
+  }
+
+  &-list {
+    margin-top: 20px;
+    padding: 0 50px;
+    width: 100%;
+    height: 400px;
+    box-sizing: border-box;
+    overflow-y: auto;
+
+    &-tip {
+      text-align: center;
+    }
+
+    &-item {
+      padding: 10px 0;
+
+      &-title {
+        color: #48466d;
+      }
+      &-type {
+        color: #46cdcf;
+      }
+      &-options {
+        color: #3d84a8;
+      }
+      &-options-val {
+        white-space: break-spaces;
+      }
+      &-ans {
+        color: #e23e57;
+      }
+    }
+
+  }
+}
