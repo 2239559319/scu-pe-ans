@@ -19,7 +19,7 @@ jobs:
         with:
           node-version: '20.x'
 
-      - run: corepack prepare pnpm@9.12.2 --activate
+      - run: npm i -g pnpm@9.12.2
       - run: pnpm i
       - run: pnpm build
 
