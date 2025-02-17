@@ -2,7 +2,7 @@
   "packageManager": "pnpm@9.12.2",
   "name": "@scu-xiaochuan/scu-pe-ans",
   "version": "0.0.2",
-  "license": "MIT",
+  "license": "GPL-3.0",
   "files": [
     "dist"
   ],
