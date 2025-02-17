@@ -13,7 +13,7 @@ const config = {
   output: {
     publicPath: isProd ? './' : '/',
     path: join(__dirname, 'dist'),
-    filename: '[name].js',
+    filename: isProd ? '[name].[contenthash:8].js' : '[name].js',
   },
   resolve: {
     extensions: ['.tsx', '.ts', '.js', '.jsx'],

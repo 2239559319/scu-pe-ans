@@ -1,5 +1,7 @@
 name: publish to npm and cdn
 
+permissions: write-all
+
 on:
   push:
     tags:
@@ -19,7 +21,7 @@ jobs:
         with:
           node-version: '20.x'
 
-      - run: corepack enable
+      - run: npm i -g pnpm@9.12.2
       - run: pnpm i
       - run: pnpm build
 
@@ -32,6 +34,10 @@ jobs:
 
       - name: Zip
         run: zip -r output.zip dist
+
+      - name: Get version number
+        run: |
+          echo "VERSION=${GITHUB_REF#refs/tags/}" >> $GITHUB_ENV
 
       - name: Create Release
         uses: softprops/action-gh-release@v2
