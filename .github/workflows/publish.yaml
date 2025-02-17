@@ -35,6 +35,10 @@ jobs:
       - name: Zip
         run: zip -r output.zip dist
 
+      - name: Get version number
+        run: |
+          echo "VERSION=${GITHUB_REF#refs/tags/}" >> $GITHUB_ENV
+
       - name: Create Release
         uses: softprops/action-gh-release@v2
         with:
