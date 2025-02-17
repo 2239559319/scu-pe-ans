@@ -1,5 +1,7 @@
 name: publish to npm and cdn
 
+permissions: write-all
+
 on:
   push:
     tags:
