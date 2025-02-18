@@ -25,12 +25,19 @@ jobs:
       - run: pnpm i
       - run: pnpm build
 
-      - name: publish
+      - name: publish npm
         run: |
           pnpm config set '//registry.npmjs.org/:_authToken' "${NODE_AUTH_TOKEN}"
           pnpm publish -r --access public --no-git-checks
         env:
           NODE_AUTH_TOKEN: ${{secrets.NPM_TOKEN}}
+
+      - name: Deploy to Cloudflare Pages
+        uses: cloudflare/pages-action@v1
+        with:
+          api-token: ${{ secrets.CLOUDFLARE_API_TOKEN }}
+          project-name: scu-pe-ans
+          directory: ./dist
 
       - name: Zip
         run: zip -r output.zip dist
