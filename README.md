@@ -16,4 +16,4 @@
 
 此demo只能用来测试，考试时不要用这个
 
-[demo](https://unpkg.com/@scu-xiaochuan/scu-pe-ans@latest/dist/index.html)
+[demo](https://scu-pe-ans.pages.dev/)
