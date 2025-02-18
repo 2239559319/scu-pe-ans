@@ -7,7 +7,8 @@
     "dist"
   ],
   "scripts": {
-    "build": "cross-env NODE_ENV=production webpack",
+    "build": "pnpm build:app && cross-env NODE_ENV=production webpack",
+    "build:app": "webpack --config ./webpack.app.config.js",
     "dev": "cross-env NODE_ENV=development webpack serve",
     "s": "serve dist"
   },
