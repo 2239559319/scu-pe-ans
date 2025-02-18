@@ -39,6 +39,7 @@ jobs:
           accountId: aef05d9551634571091c0958c9d65c9c
           projectName: scu-pe-ans
           directory: ./dist
+          branch: master
 
       - name: Zip
         run: zip -r output.zip dist
