@@ -35,8 +35,8 @@ jobs:
       - name: Deploy to Cloudflare Pages
         uses: cloudflare/pages-action@v1
         with:
-          api-token: ${{ secrets.CLOUDFLARE_API_TOKEN }}
-          project-name: scu-pe-ans
+          apiToken: ${{ secrets.CLOUDFLARE_API_TOKEN }}
+          projectName: scu-pe-ans
           directory: ./dist
 
       - name: Zip
