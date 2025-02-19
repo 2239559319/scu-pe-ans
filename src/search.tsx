@@ -38,7 +38,7 @@ const SearchBar = () => {
   return (
     <div className="search">
       <div className="search-input">
-        <Box sx={{ width: '100%', maxWidth: 500 }}>
+        <Box sx={{ width: '100%' }}>
           <TextField
             fullWidth={true}
             autoComplete="off"
@@ -47,7 +47,6 @@ const SearchBar = () => {
             value={searchTerm}
             onChange={(e) => setSearchTerm(e.target.value)}
             onKeyPress={handleKeyPress}
-            sx={{ width: '500px' }}
             InputProps={{
               endAdornment: (
                 <InputAdornment position="end">
