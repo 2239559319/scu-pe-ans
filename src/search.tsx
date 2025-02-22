@@ -43,7 +43,7 @@ const SearchBar = () => {
             fullWidth={true}
             autoComplete="off"
             variant="outlined"
-            placeholder="输入题目进行搜索..."
+            placeholder="输入题目点击按钮或者键入Enter进行搜索..."
             value={searchTerm}
             onChange={(e) => setSearchTerm(e.target.value)}
             onKeyPress={handleKeyPress}
